@@ -7,7 +7,15 @@ authors = [
     { name = "Igor Szyszkowski", email = "igo.szyszkowski@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "mypy>=2.3.1",
+    "numpy>=2.5.2",
+    "pandas>=3.0.5",
+    "requests>=2.34.2",
+    "requests-cache>=1.3.3",
+    "retry-requests>=2.0.0",
+    "ruff>=0.16.4",
+]
 
 [project.scripts]
 dresser = "dresser.__main__:main"
@@ -15,3 +23,13 @@ dresser = "dresser.__main__:main"
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pandas-stubs>=3.0.5.260730",
+    "pytest>=9.1.1",
+]
+
+[[tool.mypy.overrides]]
+module = "retry_requests.*"
+ignore_missing_imports = true
