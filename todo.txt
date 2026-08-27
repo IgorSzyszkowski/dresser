@@ -1,0 +1,3 @@
+- basic decision making
+- Person class
+- GUI

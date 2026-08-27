@@ -85,7 +85,7 @@ def get_data(city_name, start: str, end: str) -> pd.DataFrame:
     params = {
         "latitude": latitude,
         "longitude": longitude,
-        "hourly": ["temperature_2m", "precipitation_probability"],
+        "hourly": ["temperature_2m", "precipitation_probability", "apparent_temperature", "snowfall", "snow_depth"],
         "timezone": "auto",
         "start_date": start_dt.strftime(r"%Y-%m-%d"),
         "end_date": end_dt.strftime(r"%Y-%m-%d"),

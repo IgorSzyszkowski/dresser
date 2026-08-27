@@ -1,0 +1,172 @@
+[
+  {
+    "name": "Thermal Shirt",
+    "category": "top_base",
+    "min_temp": -273.15,
+    "max_temp": -10.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Long Sleeve Shirt",
+    "category": "top_base",
+    "min_temp": -10.0,
+    "max_temp": 15.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "T-Shirt",
+    "category": "top_base",
+    "min_temp": 15.0,
+    "max_temp": 50.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Sweater",
+    "category": "top_mid",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Hoodie",
+    "category": "top_mid",
+    "min_temp": 0.0,
+    "max_temp": 20.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Hoodie",
+    "category": "top_mid",
+    "min_temp": 0.0,
+    "max_temp": 10.0,
+    "waterproof": true,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Winter Coat",
+    "category": "outerwear",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": true,
+    "snowproof": true,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "waterproof Jacket",
+    "category": "outerwear",
+    "min_temp": 0.0,
+    "max_temp": 50.0,
+    "waterproof": true,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Light Jacket",
+    "category": "outerwear",
+    "min_temp": 0.0,
+    "max_temp": 10.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Warm Pants",
+    "category": "bottoms",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": true,
+    "snowproof": true,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "pants",
+    "category": "bottoms",
+    "min_temp": 0.0,
+    "max_temp": 18.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Shorts",
+    "category": "bottoms",
+    "min_temp": 18.0,
+    "max_temp": 50.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Winter Boots",
+    "category": "footwear",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": true,
+    "snowproof": true,
+    "min_snow_depth_cm": 2.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Sneakers",
+    "category": "footwear",
+    "min_temp": 0.0,
+    "max_temp": 50.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Sneakers",
+    "category": "footwear",
+    "min_temp": -10.0,
+    "max_temp": 0.0,
+    "waterproof": false,
+    "snowproof": false,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Winter Beanie",
+    "category": "accessories",
+    "min_temp": -273.15,
+    "max_temp": 5.0,
+    "waterproof": false,
+    "snowproof": true,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Gloves",
+    "category": "accessories",
+    "min_temp": -273.15,
+    "max_temp": -5.0,
+    "waterproof": false,
+    "snowproof": true,
+    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  }
+]
