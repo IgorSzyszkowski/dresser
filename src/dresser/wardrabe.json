@@ -6,7 +6,6 @@
     "max_temp": -10.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -16,17 +15,15 @@
     "max_temp": 15.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
     "name": "T-Shirt",
     "category": "top_base",
     "min_temp": 15.0,
-    "max_temp": 50.0,
+    "max_temp": 100.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -36,7 +33,15 @@
     "max_temp": 0.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
+    "sun_protection": false
+  },
+  {
+    "name": "Sweater",
+    "category": "top_mid",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": true,
+    "snowproof": false,
     "sun_protection": false
   },
   {
@@ -46,7 +51,6 @@
     "max_temp": 20.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -56,7 +60,6 @@
     "max_temp": 10.0,
     "waterproof": true,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -66,17 +69,15 @@
     "max_temp": 0.0,
     "waterproof": true,
     "snowproof": true,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
     "name": "waterproof Jacket",
     "category": "outerwear",
     "min_temp": 0.0,
-    "max_temp": 50.0,
+    "max_temp": 100.0,
     "waterproof": true,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -86,7 +87,6 @@
     "max_temp": 10.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -96,7 +96,6 @@
     "max_temp": 0.0,
     "waterproof": true,
     "snowproof": true,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -106,47 +105,42 @@
     "max_temp": 18.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
     "name": "Shorts",
     "category": "bottoms",
     "min_temp": 18.0,
-    "max_temp": 50.0,
+    "max_temp": 100.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
     "name": "Winter Boots",
     "category": "footwear",
     "min_temp": -273.15,
-    "max_temp": 0.0,
+    "max_temp": 100.0,
     "waterproof": true,
     "snowproof": true,
-    "min_snow_depth_cm": 2.0,
     "sun_protection": false
   },
   {
-    "name": "Sneakers",
+    "name": "Winter Boots",
     "category": "footwear",
-    "min_temp": 0.0,
-    "max_temp": 50.0,
-    "waterproof": false,
+    "min_temp": -273.15,
+    "max_temp": -10.0,
+    "waterproof": true,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
     "name": "Sneakers",
     "category": "footwear",
     "min_temp": -10.0,
-    "max_temp": 0.0,
+    "max_temp": 100.0,
     "waterproof": false,
     "snowproof": false,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -156,7 +150,6 @@
     "max_temp": 5.0,
     "waterproof": false,
     "snowproof": true,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   },
   {
@@ -166,7 +159,6 @@
     "max_temp": -5.0,
     "waterproof": false,
     "snowproof": true,
-    "min_snow_depth_cm": 0.0,
     "sun_protection": false
   }
 ]

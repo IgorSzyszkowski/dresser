@@ -1,3 +1,4 @@
 - basic decision making
 - Person class
 - GUI
+- there are 2 hoodies check if it works
