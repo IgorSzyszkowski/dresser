@@ -36,21 +36,21 @@ def get_location(city_name: str, session: requests.Session) -> tuple[float, floa
     return coords
 
 
-def get_data(city_name, start: str, end: str) -> pd.DataFrame:
+def get_weather(city_name, start: str, end: str) -> pd.DataFrame:
     """Fetches hourly weather forecast data from Open-Meteo for a specific city and date range.
 
-    Validates the input date range (requires non-past dates, enforces a max 16-day 
+    Validates the input date range (requires non-past dates, enforces a max 16-day
     forecast limit) and filters the resulting DataFrame to the half-open interval [start, end).
 
     Args:
         city_name (str): Name of the city to retrieve forecast data for.
-        start (str): Start date and time in a pandas-parseable format 
+        start (str): Start date and time in a pandas-parseable format
             (e.g., "YYYY-MM-DD HH:MM:SS AM/PM" or "YYYY-MM-DD HH:MM").
         end (str): End date and time.
 
     Returns:
-        pd.DataFrame: A Pandas DataFrame containing columns for local timestamps (`time`), 
-            temperature at 2 meters (`temperature_2m`), and precipitation 
+        pd.DataFrame: A Pandas DataFrame containing columns for local timestamps (`time`),
+            temperature at 2 meters (`temperature_2m`), and precipitation
             probability (`precipitation_probability`).
 
     Raises:
@@ -64,7 +64,7 @@ def get_data(city_name, start: str, end: str) -> pd.DataFrame:
     try:
         start_dt = pd.to_datetime(start)
         end_dt = pd.to_datetime(end)
-    except (ValueError, TypeError):
+    except ValueError, TypeError:
         raise ValueError(
             f"date format must be YYYY-MM-DD HH:MM:SS AM/PM, given start: {start}, end: {end}"
         )
@@ -85,7 +85,12 @@ def get_data(city_name, start: str, end: str) -> pd.DataFrame:
     params = {
         "latitude": latitude,
         "longitude": longitude,
-        "hourly": ["temperature_2m", "precipitation_probability", "apparent_temperature", "snowfall", "snow_depth"],
+        "hourly": [
+            "temperature_2m",
+            "precipitation_probability",
+            "apparent_temperature",
+            "snow_depth",
+        ],
         "timezone": "auto",
         "start_date": start_dt.strftime(r"%Y-%m-%d"),
         "end_date": end_dt.strftime(r"%Y-%m-%d"),
