@@ -3,7 +3,7 @@
     "name": "Thermal Shirt",
     "category": "top_base",
     "min_temp": -273.15,
-    "max_temp": -10.0,
+    "max_temp": -15.0,
     "waterproof": false,
     "snowproof": false,
     "sun_protection": false
@@ -11,8 +11,8 @@
   {
     "name": "Long Sleeve Shirt",
     "category": "top_base",
-    "min_temp": -10.0,
-    "max_temp": 15.0,
+    "min_temp": -15.0,
+    "max_temp": 10.0,
     "waterproof": false,
     "snowproof": false,
     "sun_protection": false
@@ -20,7 +20,7 @@
   {
     "name": "T-Shirt",
     "category": "top_base",
-    "min_temp": 15.0,
+    "min_temp": 10.0,
     "max_temp": 100.0,
     "waterproof": false,
     "snowproof": false,

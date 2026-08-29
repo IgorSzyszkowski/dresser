@@ -31,7 +31,7 @@ def print_items(clothes: dict[str, ClothingItem | list[str]]) -> None:
 
 def main() -> None:
     """Runs the clothing selection workflow for Kraków over a 4-hour forecast window."""
-    selector = Selector("Kraków", hours=4)
+    selector = Selector("Krasnystaw", hours=4)
     clothes = selector.select_clothes()
     print(selector)
     print_items(clothes)
