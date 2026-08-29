@@ -72,6 +72,15 @@
     "sun_protection": false
   },
   {
+    "name": "Winter Coat",
+    "category": "outerwear",
+    "min_temp": -273.15,
+    "max_temp": 0.0,
+    "waterproof": false,
+    "snowproof": true,
+    "sun_protection": false
+  },
+  {
     "name": "waterproof Jacket",
     "category": "outerwear",
     "min_temp": 0.0,

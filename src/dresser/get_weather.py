@@ -36,31 +36,50 @@ def get_location(city_name: str, session: requests.Session) -> tuple[float, floa
     return coords
 
 
-def get_weather(city_name, start: str, end: str) -> pd.DataFrame:
+def get_weather(
+    city_name: str, start: str = "", end: str = "", hours: float = 1
+) -> tuple[pd.DataFrame, str, str]:
     """Fetches hourly weather forecast data from Open-Meteo for a specific city and date range.
 
     Validates the input date range (requires non-past dates, enforces a max 16-day
     forecast limit) and filters the resulting DataFrame to the half-open interval [start, end).
+    If `start` or `end` are empty, defaults to current local time and calculates `end` using `hours`.
 
     Args:
         city_name (str): Name of the city to retrieve forecast data for.
-        start (str): Start date and time in a pandas-parseable format
-            (e.g., "YYYY-MM-DD HH:MM:SS AM/PM" or "YYYY-MM-DD HH:MM").
-        end (str): End date and time.
+        start (str, optional): Start date and time in a pandas-parseable format
+            (e.g., "YYYY-MM-DD HH:MM"). Defaults to "" (current local time).
+        end (str, optional): End date and time. Defaults to "" (calculated via `hours`).
+        hours (float, optional): Time window duration in hours to add to `start`
+            when `end` is not provided. Defaults to 1.
 
     Returns:
-        pd.DataFrame: A Pandas DataFrame containing columns for local timestamps (`time`),
-            temperature at 2 meters (`temperature_2m`), and precipitation
-            probability (`precipitation_probability`).
+        tuple[pd.DataFrame, str, str]: A tuple containing:
+            - pd.DataFrame: Hourly forecast data with columns `time`, `temperature_2m`,
+              `precipitation_probability`, `apparent_temperature`, and `snow_depth`.
+            - str: Effective start timestamp string used for the query.
+            - str: Effective end timestamp string used for the query.
 
     Raises:
         ValueError: Raised under the following conditions:
             - Invalid date format in `start` or `end` parameters.
             - When `end` date is earlier than or equal to `start` date.
             - When `start` date is in the past (relative to local city time).
-            - When `end` date exceeds the 16-day forecast limit from the current time.
+            - When `end` date exceeds the 16-day forecast limit from current time.
             - When the city cannot be found by the geocoding API.
     """
+    session = requests_cache.CachedSession(cache_name=".cache", expire_after=3600)
+    retry_session = retry(session, retries=5, backoff_factor=0.2)
+    latitude, longitude, location_tz = get_location(city_name, retry_session)
+    location_now = pd.Timestamp.now(tz=location_tz)
+
+    if start == "":
+        start = location_now.strftime("%Y-%m-%d %H:%M")
+    if end == "":
+        end = (pd.to_datetime(start) + pd.Timedelta(hours=hours)).strftime(
+            "%Y-%m-%d %H:%M"
+        )
+
     try:
         start_dt = pd.to_datetime(start)
         end_dt = pd.to_datetime(end)
@@ -68,19 +87,17 @@ def get_weather(city_name, start: str, end: str) -> pd.DataFrame:
         raise ValueError(
             f"date format must be YYYY-MM-DD HH:MM:SS AM/PM, given start: {start}, end: {end}"
         )
+
     if end_dt <= start_dt:
         raise ValueError("start date must be earlier than end date")
 
-    session = requests_cache.CachedSession(cache_name=".cache", expire_after=3600)
-    retry_session = retry(session, retries=5, backoff_factor=0.2)
-    latitude, longitude, location_tz = get_location(city_name, retry_session)
-    location_now = pd.Timestamp.now(tz=location_tz)
     if start_dt.date() < location_now.date():
         raise ValueError("date is from the past")
 
     max_date = location_now + pd.Timedelta(days=15)
     if end_dt.date() > max_date.date():
         raise ValueError("The end date must be up to 16 days from now")
+
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
         "latitude": latitude,
@@ -98,7 +115,9 @@ def get_weather(city_name, start: str, end: str) -> pd.DataFrame:
     response = retry_session.get(url, params=params)
     response.raise_for_status()
     response = response.json()
+
     df = pd.DataFrame(response["hourly"])
     df["time"] = pd.to_datetime(df["time"])
     df = df[(start_dt.floor("h") <= df["time"]) & (df["time"] < end_dt)]
-    return df
+
+    return df, start, end
